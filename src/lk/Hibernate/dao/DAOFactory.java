@@ -9,7 +9,7 @@ public class DAOFactory {
     }
 
     //singleton
-    public static DAOFactory getDaoFactory() {
+    public static DAOFactory getInstance() {
         return (daoFactory == null) ? daoFactory = new DAOFactory() : daoFactory;
     }
 
