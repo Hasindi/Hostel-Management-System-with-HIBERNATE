@@ -1,5 +1,6 @@
 package lk.Hibernate.dao;
 
+import lk.Hibernate.dao.custom.impl.RoomDAOImpl;
 import lk.Hibernate.dao.custom.impl.StudentDAOImpl;
 
 public class DAOFactory {
@@ -15,7 +16,7 @@ public class DAOFactory {
 
     //public final static integer values
     public enum DAOTypes {
-        STUDENT
+        STUDENT,ROOM
     }
 
     //method for hide the object creation logic and return what client wants
@@ -23,6 +24,8 @@ public class DAOFactory {
         switch (types) {
             case STUDENT:
                 return (T) new StudentDAOImpl();
+            case ROOM:
+                return (T) new RoomDAOImpl();
             default:
                 return null;
         }

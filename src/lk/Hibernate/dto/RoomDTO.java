@@ -17,4 +17,5 @@ public class RoomDTO {
     private String type;
     private double keyMoney;
     private int qty;
+
 }

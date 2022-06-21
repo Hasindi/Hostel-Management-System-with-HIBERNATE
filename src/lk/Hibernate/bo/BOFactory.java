@@ -1,6 +1,7 @@
 package lk.Hibernate.bo;
 
-import lk.Hibernate.dao.custom.impl.StudentDAOImpl;
+import lk.Hibernate.bo.custom.impl.RoomBOImpl;
+import lk.Hibernate.bo.custom.impl.StudentBOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -14,14 +15,16 @@ public class BOFactory {
 
     //public final static integer values
     public enum BOTypes {
-        STUDENT
+        STUDENT,ROOM
     }
 
     //method for hide the object creation logic and return what client wants
     public <T extends SuperBO> T getBO(BOTypes boType){
         switch (boType){
             case STUDENT:
-                return (T) new StudentDAOImpl();
+                return (T) new StudentBOImpl();
+            case ROOM:
+                return (T) new RoomBOImpl();
             default:
                 return null;
         }

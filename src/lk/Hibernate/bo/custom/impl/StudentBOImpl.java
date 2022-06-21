@@ -12,19 +12,22 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public boolean add(StudentDTO studentDTO) throws Exception {
-        return studentDAO.add(new Student(
-                studentDTO.getStudentId(),
-                studentDTO.getName(),
-                studentDTO.getAddress(),
-                studentDTO.getContactNo(),
-                studentDTO.getDob(),
-                studentDTO.getGender()
-        ));
+        return studentDAO.add(
+                new Student(
+                        studentDTO.getStudentId(),
+                        studentDTO.getName(),
+                        studentDTO.getAddress(),
+                        studentDTO.getContactNo(),
+                        studentDTO.getDob(),
+                        studentDTO.getGender()
+                )
+        );
     }
 
     @Override
     public boolean update(StudentDTO studentDTO) throws Exception {
-        return studentDAO.update(new Student(
+        return studentDAO.update(
+                new Student(
                 studentDTO.getStudentId(),
                 studentDTO.getName(),
                 studentDTO.getAddress(),
