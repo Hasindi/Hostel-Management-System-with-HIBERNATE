@@ -1,4 +1,4 @@
-package lk.Hibernate.entity;
+package lk.Hibernate.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 @Entity
-public class Room implements Super{
+public class RoomDTO {
     @Id
     private String roomId;
     private String type;

@@ -1,4 +1,4 @@
-package lk.Hibernate.entity;
+package lk.Hibernate.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 @Entity
-public class Student implements Super{
+public class StudentDTO {
     @Id
     private String studentId;
     private String name;
@@ -19,4 +19,5 @@ public class Student implements Super{
     private String contactNo;
     private String dob;
     private String gender;
+
 }
