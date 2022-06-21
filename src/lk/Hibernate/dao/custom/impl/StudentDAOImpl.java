@@ -6,6 +6,7 @@ import lk.Hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
@@ -54,6 +55,11 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public List<Student> findAll() throws Exception {
+        return null;
+    }
+
+    @Override
+    public String generateNewID() throws SQLException, ClassNotFoundException {
         return null;
     }
 }
