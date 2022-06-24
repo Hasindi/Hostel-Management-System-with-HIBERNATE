@@ -1,16 +1,19 @@
 package lk.Hibernate.dao;
 
 
-import lk.Hibernate.entity.Super;
-
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface SuperDAO<Entity extends Super,ID> {
-    public boolean add(Entity entity) throws Exception;
-    public boolean update(Entity entity) throws Exception;
-    public boolean delete(ID id) throws Exception;
-    public Entity find(ID id) throws Exception;
-    public List<Entity> findAll() throws Exception;
-    String generateNewID() throws SQLException, ClassNotFoundException;
+public interface SuperDAO<Entity,ID> {
+
+    public boolean add(Entity entity) throws SQLException, ClassNotFoundException, IOException;
+
+    public boolean update(Entity entity) throws SQLException, ClassNotFoundException, IOException;
+
+    public boolean delete(ID id) throws SQLException, ClassNotFoundException, IOException;
+
+    public Entity find(ID id) throws SQLException, ClassNotFoundException;
+
+    public List<Entity> loadAll() throws SQLException, ClassNotFoundException, IOException;
 }

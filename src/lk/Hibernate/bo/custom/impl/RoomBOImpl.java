@@ -6,35 +6,56 @@ import lk.Hibernate.dto.RoomDTO;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.dao.custom.impl.RoomDAOImpl;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 
 public class RoomBOImpl implements RoomBO {
 
     RoomDAOImpl roomDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ROOM);
 
     @Override
-    public boolean add(RoomDTO roomDTO) throws Exception {
-        return roomDAO.add(
+    public boolean add(RoomDTO roomDTO) throws SQLException, ClassNotFoundException, IOException {
+        return false;
+    }
+
+    @Override
+    public boolean update(RoomDTO roomDTO) throws SQLException, ClassNotFoundException, IOException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String id) throws SQLException, ClassNotFoundException, IOException {
+        return false;
+    }
+
+    /*@Override
+    public boolean add(RoomDTO roomDTO) throws SQLException, ClassNotFoundException, IOException {
+        *//*return roomDAO.add(
                 new Room(
                         roomDTO.getRoomId(),
                         roomDTO.getType(),
                         roomDTO.getKeyMoney(),
                         roomDTO.getQty()
-                ));
+                ));*//*
+        return true;
     }
 
     @Override
-    public boolean update(RoomDTO roomDTO) throws Exception {
-        return roomDAO.update(
+    public boolean update(RoomDTO roomDTO) throws SQLException, ClassNotFoundException, IOException {
+        *//*return roomDAO.update(
                 new Room(
                         roomDTO.getRoomId(),
                         roomDTO.getType(),
                         roomDTO.getKeyMoney(),
                         roomDTO.getQty()
-                ));
+                ));*//*
+        return true;
     }
 
     @Override
-    public boolean delete(String id) throws Exception {
-        return roomDAO.delete(id);
-    }
+    public boolean delete(String id) throws IOException {
+        *//*return roomDAO.delete(id);*//*
+        return true;
+    }*/
 }

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 @Entity
-public class Room implements Super{
+public class Room {
     @Id
     private String roomId;
     private String type;

@@ -1,18 +1,24 @@
 package lk.Hibernate.dao.custom.impl;
 
 import lk.Hibernate.dao.custom.StudentDAO;
+import lk.Hibernate.dto.StudentDTO;
 import lk.Hibernate.entity.Student;
 import lk.Hibernate.util.FactoryConfiguration;
+import lk.Hibernate.view.TM.StudentTM;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
 
     @Override
-    public boolean add(Student student) throws Exception {
+    public boolean add(Student student) throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -24,7 +30,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean update(Student student) throws Exception {
+    public boolean update(Student student) throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -36,7 +42,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean delete(String s) throws Exception {
+    public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -49,17 +55,20 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student find(String s) throws Exception {
+    public Student find(String s) throws SQLException,ClassNotFoundException {
         return null;
     }
 
     @Override
-    public List<Student> findAll() throws Exception {
-        return null;
-    }
+    public List<Student> loadAll() throws SQLException, ClassNotFoundException, IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
 
-    @Override
-    public String generateNewID() throws SQLException, ClassNotFoundException {
-        return null;
+        List<Student> list = null;
+        Query from_student = session.createQuery("FROM Student");
+        list = from_student.list();
+        transaction.commit();
+        session.close();
+        return list;
     }
 }
