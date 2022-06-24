@@ -13,13 +13,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="AdminDashBoardContext" prefHeight="1050.0" prefWidth="1637.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Hibernate.controller.DashBoardController">
    <children>
       <BorderPane layoutX="2.0" layoutY="2.0" prefHeight="1050.0" prefWidth="1920.0" style="-fx-background-color: white;" />
-      <AnchorPane prefHeight="1050.0" prefWidth="253.0" style="-fx-background-color: #EAEEF4;">
+      <AnchorPane prefHeight="1050.0" prefWidth="1923.0" style="-fx-background-color: #EAEEF4;">
          <children>
-            <AnchorPane layoutX="287.0" layoutY="94.0" prefHeight="917.0" prefWidth="1601.0" style="-fx-background-color: white;">
+            <AnchorPane layoutX="301.0" layoutY="95.0" prefHeight="917.0" prefWidth="1601.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="237.0" layoutY="102.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #00B8EE;">
                      <padding>
@@ -48,7 +47,10 @@
                      </padding>
                   </Label>
                   <Label layoutX="619.0" layoutY="221.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #088947;" />
-                  <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="793.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="94.0" fitWidth="100.0" layoutX="801.0" layoutY="121.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/house-black-silhouette-without-door.png" />
+                     </image></ImageView>
                   <Text fill="WHITE" layoutX="665.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avilable Room">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -65,7 +67,10 @@
                      </padding>
                   </Label>
                   <Label layoutX="1007.0" layoutY="221.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #D48112;" />
-                  <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="1181.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="94.0" fitWidth="94.0" layoutX="1197.0" layoutY="119.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/list.png" />
+                     </image></ImageView>
                   <Text fill="WHITE" layoutX="1037.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reseived Room">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -129,6 +134,7 @@
                   </Text>
                   <AnchorPane layoutX="680.0" layoutY="465.0" prefHeight="362.0" prefWidth="491.0" style="-fx-background-color: #000143;">
                      <children>
+                        <Label layoutX="326.0" layoutY="199.0" prefHeight="53.0" prefWidth="46.0" style="-fx-background-color: white;" />
                         <Label alignment="CENTER" layoutX="71.0" layoutY="146.0" opacity="0.18" prefHeight="140.0" prefWidth="340.0" style="-fx-border-color: white;">
                            <font>
                               <Font name="System Bold" size="24.0" />
@@ -144,7 +150,10 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Text>
-                        <ImageView fitHeight="81.0" fitWidth="75.0" layoutX="302.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="81.0" fitWidth="75.0" layoutX="312.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/up-circular-256.png" />
+                           </image></ImageView>
                         <Label fx:id="lblTotalIncome" layoutX="112.0" layoutY="216.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="37.0" />
@@ -182,20 +191,20 @@
                   <Insets top="15.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#AdminInfoOnAction" prefHeight="36.0" prefWidth="181.0" style="-fx-background-color: tranceparents; -fx-background-radius: 60;" text="Hasindi Mudithya" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#LogoutOnAction" prefHeight="36.0" prefWidth="181.0" style="-fx-background-color: tranceparents; -fx-background-radius: 60;" text="Log Out" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
                <HBox.margin>
-                  <Insets left="1099.0" top="17.0" />
+                  <Insets left="1040.0" top="17.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <VBox prefHeight="1050.0" prefWidth="253.0" style="-fx-background-color: #1D282D;">
+      <VBox prefHeight="1050.0" prefWidth="274.0" style="-fx-background-color: #1D282D;">
          <children>
             <Label text="Student" textFill="WHITE">
                <font>
@@ -229,13 +238,10 @@
                   <Insets bottom="50.0" top="70.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnStudent" mnemonicParsing="false" onAction="#StudentOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Student" textFill="WHITE">
+            <Button fx:id="btnStudent" mnemonicParsing="false" onAction="#StudentOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text=" Manage Students" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
-               <padding>
-                  <Insets right="25.0" />
-               </padding>
                <VBox.margin>
                   <Insets bottom="25.0" />
                </VBox.margin>
@@ -246,13 +252,16 @@
                      </image>
                   </ImageView>
                </graphic>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
             </Button>
-            <Button fx:id="btnRoom" mnemonicParsing="false" onAction="#RoomOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Room" textFill="WHITE">
+            <Button fx:id="btnRoom" mnemonicParsing="false" onAction="#RoomOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="  Manage Rooms" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
                <padding>
-                  <Insets right="45.0" />
+                  <Insets right="25.0" />
                </padding>
                <VBox.margin>
                   <Insets bottom="25.0" />
@@ -265,12 +274,12 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnReport" mnemonicParsing="false" onAction="#ReportOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   All Details" textFill="WHITE">
+            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#RegisterOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="  Register Student" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets />
+                  <Insets bottom="25.0" />
                </VBox.margin>
                <graphic>
                   <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -280,16 +289,23 @@
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets left="17.0" />
+                  <Insets left="17.0" right="30.0" />
                </padding>
             </Button>
-            <Button mnemonicParsing="false" onAction="#LogoutOnAction" prefHeight="28.0" prefWidth="172.0" style="-fx-background-color: #A38340; -fx-background-radius: 65;" text="Logout" textFill="WHITE">
+            <Button fx:id="btnReport1" mnemonicParsing="false" onAction="#ReportOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="  Reserve Details" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="19.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
-               <VBox.margin>
-                  <Insets left="65.0" top="220.0" />
-               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/outline_inventory_white_24dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="17.0" right="37.0" />
+               </padding>
             </Button>
          </children>
       </VBox>
