@@ -6,6 +6,8 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -16,7 +18,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import lk.Hibernate.bo.BOFactory;
 import lk.Hibernate.bo.custom.StudentBO;
-import lk.Hibernate.bo.custom.impl.StudentBOImpl;
 import lk.Hibernate.dto.StudentDTO;
 import lk.Hibernate.util.ValidationUtil;
 import lk.Hibernate.view.TM.StudentTM;
@@ -127,15 +128,29 @@ public class ManageStudentFormController {
 
             tblAllStudents.setItems(obList);
 
-        }catch (SQLException | ClassNotFoundException e){
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            FilteredList<StudentDTO> filterData = new FilteredList(obList, b -> true);
 
-        } catch (IOException e) {
+            txtSearchId.textProperty().addListener((observable, oldValue, newValue) -> {
+                filterData.setPredicate(StudentDTO -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (StudentDTO.getStudentId().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                        return true;
+                    }
+                    else
+                        return false;
+                });
+            });
+
+            SortedList<StudentDTO> sortedData = new SortedList<>(filterData);
+            sortedData.comparatorProperty().bind(tblAllStudents.comparatorProperty());
+            tblAllStudents.setItems(sortedData);
+
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    public void SearchOnKeyReleased(KeyEvent keyEvent) {
     }
 
     public void clearOnAction(ActionEvent actionEvent) {
@@ -156,13 +171,16 @@ public class ManageStudentFormController {
         try{
             if (studentBO.update(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(),
                     txtContact.getText(), LocalDate.parse(txtBirth.getValue().toString()), cmbGender.getValue().toString()))) {
-                new Alert(Alert.AlertType.CONFIRMATION,"Updated");
+
+                new Alert(Alert.AlertType.CONFIRMATION,"Data Updated Succussfully...!!!").showAndWait();
+
             }
 
         }catch(Exception e){
             e.printStackTrace();
         }
 
+        loadAllStudents();
         clearText();
     }
 
@@ -171,26 +189,33 @@ public class ManageStudentFormController {
 
         try {
             studentBO.delete(id);
+            new Alert(Alert.AlertType.CONFIRMATION,"Are You Sure...?").showAndWait();
             tblAllStudents.getItems().remove(tblAllStudents.getSelectionModel().getSelectedItem());
             tblAllStudents.getSelectionModel().clearSelection();
+
+
 
         }catch (Exception e) {
             e.printStackTrace();
         }
+        loadAllStudents();
     }
 
     public void addOnAction(ActionEvent actionEvent) {
         try{
             if (studentBO.add(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(),
                     txtContact.getText(), LocalDate.parse(txtBirth.getValue().toString()), cmbGender.getValue().toString()))) {
-                new Alert(Alert.AlertType.CONFIRMATION,"Added");
+
+                new Alert(Alert.AlertType.CONFIRMATION,"Data Added Succussfully...!!!").showAndWait();
+
             }
 
         }catch(Exception e){
-            new Alert(Alert.AlertType.ERROR, "Failed to save the Student " + e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR, "Failed to save the Student!!! " + e.getMessage()).showAndWait();
             e.printStackTrace();
         }
 
+        loadAllStudents();
         clearText();
     }
 

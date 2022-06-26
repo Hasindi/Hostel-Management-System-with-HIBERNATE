@@ -1,18 +1,14 @@
 package lk.Hibernate.dao.custom.impl;
 
 import lk.Hibernate.dao.custom.StudentDAO;
-import lk.Hibernate.dto.StudentDTO;
 import lk.Hibernate.entity.Student;
 import lk.Hibernate.util.FactoryConfiguration;
-import lk.Hibernate.view.TM.StudentTM;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {

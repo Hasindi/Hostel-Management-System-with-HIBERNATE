@@ -1,24 +1,17 @@
-package lk.Hibernate.entity;
+package lk.Hibernate.view.TM;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lk.Hibernate.dto.RoomDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
-public class Room {
-    @Id
+public class RoomTM extends RoomDTO {
     private String roomId;
     private String type;
     private double keyMoney;
     private int qty;
 
-    public Room() {
+    public RoomTM() {
     }
 
-    public Room(String roomId, String type, double keyMoney, int qty) {
+    public RoomTM(String roomId, String type, double keyMoney, int qty) {
         this.roomId = roomId;
         this.type = type;
         this.keyMoney = keyMoney;
@@ -59,7 +52,7 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
+        return "RoomTM{" +
                 "roomId='" + roomId + '\'' +
                 ", type='" + type + '\'' +
                 ", keyMoney=" + keyMoney +
