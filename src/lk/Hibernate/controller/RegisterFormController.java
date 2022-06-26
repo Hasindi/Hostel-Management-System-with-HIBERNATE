@@ -3,14 +3,9 @@ package lk.Hibernate.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Optional;
 
 public class RegisterFormController {
     public JFXTextField txtRegisterNo;
@@ -29,10 +24,6 @@ public class RegisterFormController {
     public Label txtAvilability;
     public JFXButton btnRegister;
 
-    public void initialize(){
-        cmbStudentID.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-        });
-    }
 
     public void RegisterOnAction(ActionEvent actionEvent) {
     }
