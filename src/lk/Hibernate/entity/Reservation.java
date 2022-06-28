@@ -1,7 +1,9 @@
 package lk.Hibernate.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @Entity
@@ -9,14 +11,19 @@ public class Reservation {
     @Id
     private String registerID;
     private LocalDate date;
-    private String studentID;
-    private String roomID;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Student studentID;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Room roomID;
+
     private String status;
 
     public Reservation() {
     }
 
-    public Reservation(String registerID, LocalDate date, String studentID, String roomID, String status) {
+    public Reservation(String registerID, LocalDate date, Student studentID, Room roomID, String status) {
         this.registerID = registerID;
         this.date = date;
         this.studentID = studentID;
@@ -40,19 +47,19 @@ public class Reservation {
         this.date = date;
     }
 
-    public String getStudentID() {
+    public Student getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(Student studentID) {
         this.studentID = studentID;
     }
 
-    public String getRoomID() {
+    public Room getRoomID() {
         return roomID;
     }
 
-    public void setRoomID(String roomID) {
+    public void setRoomID(Room roomID) {
         this.roomID = roomID;
     }
 
@@ -66,11 +73,11 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Register{" +
+        return "Reservation{" +
                 "registerID='" + registerID + '\'' +
                 ", date=" + date +
-                ", studentID='" + studentID + '\'' +
-                ", roomID='" + roomID + '\'' +
+                ", studentID=" + studentID +
+                ", roomID=" + roomID +
                 ", status='" + status + '\'' +
                 '}';
     }
