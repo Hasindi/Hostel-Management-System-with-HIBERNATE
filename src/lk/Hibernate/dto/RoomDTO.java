@@ -1,6 +1,8 @@
 package lk.Hibernate.dto;
 
 
+import java.util.List;
+
 public class RoomDTO {
     private String roomId;
     private String type;

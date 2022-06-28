@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class Register {
+public class Reservation {
     @Id
     private String registerID;
     private LocalDate date;
@@ -13,10 +13,10 @@ public class Register {
     private String roomID;
     private String status;
 
-    public Register() {
+    public Reservation() {
     }
 
-    public Register(String registerID, LocalDate date, String studentID, String roomID, String status) {
+    public Reservation(String registerID, LocalDate date, String studentID, String roomID, String status) {
         this.registerID = registerID;
         this.date = date;
         this.studentID = studentID;

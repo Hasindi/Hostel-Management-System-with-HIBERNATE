@@ -2,17 +2,18 @@ package lk.Hibernate.dto;
 
 import java.time.LocalDate;
 
-public class RegisterDTO {
+
+public class ReservationDTO {
     private String registerID;
     private LocalDate date;
     private String studentID;
     private String roomID;
     private String status;
 
-    public RegisterDTO() {
+    public ReservationDTO() {
     }
 
-    public RegisterDTO(String registerID, LocalDate date, String studentID, String roomID, String status) {
+    public ReservationDTO(String registerID, LocalDate date, String studentID, String roomID, String status) {
         this.registerID = registerID;
         this.date = date;
         this.studentID = studentID;
