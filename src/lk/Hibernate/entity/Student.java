@@ -22,7 +22,7 @@ public class Student {
     private LocalDate dob;
     private String gender;
 
-    @OneToMany(mappedBy = "Student", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 
     public Student(String studentId, String name, String address, String contactNo, LocalDate dob, String gender) {

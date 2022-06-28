@@ -18,7 +18,7 @@ public class Room {
     private double keyMoney;
     private int qty;
 
-    @OneToMany(mappedBy = "Room",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 
     public Room() {

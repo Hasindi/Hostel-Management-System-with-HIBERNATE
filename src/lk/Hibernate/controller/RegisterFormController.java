@@ -6,6 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import lk.Hibernate.bo.BOFactory;
+import lk.Hibernate.bo.custom.ReservationBO;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class RegisterFormController {
     public JFXTextField txtRegisterNo;
@@ -23,6 +28,25 @@ public class RegisterFormController {
     public TextField txtKeyMoney;
     public Label txtAvilability;
     public JFXButton btnRegister;
+
+    private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
+
+    public void initialize(){
+        try{
+            loadAllStudentIDs();
+            loadAllRoomIDs();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void loadAllRoomIDs() throws SQLException, IOException, ClassNotFoundException {
+        cmbRoomID.getItems().addAll(reservationBO.setRoomIDs());
+    }
+
+    private void loadAllStudentIDs() throws SQLException, IOException, ClassNotFoundException {
+        cmbStudentID.getItems().addAll(reservationBO.setStudentIDs());
+    }
 
     public void RegisterOnAction(ActionEvent actionEvent) {
     }
