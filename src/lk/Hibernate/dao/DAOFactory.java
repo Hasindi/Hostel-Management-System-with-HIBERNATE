@@ -27,6 +27,8 @@ public class DAOFactory {
                 return (T) new StudentDAOImpl();
             case ROOM:
                 return (T) new RoomDAOImpl();
+            case RESERVATION:
+                return (T) new ReservationDAOImpl();
             default:
                 return null;
         }

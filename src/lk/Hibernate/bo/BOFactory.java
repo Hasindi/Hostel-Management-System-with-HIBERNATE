@@ -1,5 +1,6 @@
 package lk.Hibernate.bo;
 
+import lk.Hibernate.bo.custom.impl.ReservationBOImpl;
 import lk.Hibernate.bo.custom.impl.RoomBOImpl;
 import lk.Hibernate.bo.custom.impl.StudentBOImpl;
 
@@ -15,7 +16,7 @@ public class BOFactory {
 
     //public final static integer values
     public enum BOTypes {
-        STUDENT,ROOM
+        STUDENT,ROOM,RESERVATION
     }
 
     //method for hide the object creation logic and return what client wants
@@ -25,6 +26,8 @@ public class BOFactory {
                 return (T) new StudentBOImpl();
             case ROOM:
                 return (T) new RoomBOImpl();
+            case RESERVATION:
+                return (T) new ReservationBOImpl();
             default:
                 return null;
         }
