@@ -1,5 +1,6 @@
 package lk.Hibernate.util;
 
+import lk.Hibernate.entity.Reservation;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.entity.Student;
 import org.hibernate.Session;
@@ -21,6 +22,7 @@ public class FactoryConfiguration {
 
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Room.class);
+        configuration.addAnnotatedClass(Reservation.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }

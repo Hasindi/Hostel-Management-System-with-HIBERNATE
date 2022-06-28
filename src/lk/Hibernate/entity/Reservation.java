@@ -13,7 +13,6 @@ public class Reservation {
     private String roomID;
     private String status;
 
-
     public Reservation() {
     }
 
