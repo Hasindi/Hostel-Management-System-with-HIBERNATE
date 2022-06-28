@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
@@ -15,6 +17,9 @@ public class Room {
     private String type;
     private double keyMoney;
     private int qty;
+
+    @OneToMany(mappedBy = "Room",cascade = CascadeType.ALL)
+    private List<Reservation> reservations;
 
     public Room() {
     }

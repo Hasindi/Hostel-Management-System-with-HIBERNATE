@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -18,6 +21,9 @@ public class Student {
     private String contactNo;
     private LocalDate dob;
     private String gender;
+
+    @OneToMany(mappedBy = "Student", cascade = CascadeType.ALL)
+    private List<Reservation> reservations;
 
     public Student(String studentId, String name, String address, String contactNo, LocalDate dob, String gender) {
         this.studentId = studentId;
