@@ -27,14 +27,15 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
-    public Student setStudentsData() throws SQLException, ClassNotFoundException {
+    public Student setStudentsData(String id) throws SQLException, ClassNotFoundException {
         return null;
     }
 
     @Override
-    public Room setRoomsData() throws SQLException, ClassNotFoundException {
+    public Room setRoomsData(String id) throws SQLException, ClassNotFoundException {
         return null;
     }
+
 
     @Override
     public String generateNewRegisterId() throws SQLException, ClassNotFoundException {

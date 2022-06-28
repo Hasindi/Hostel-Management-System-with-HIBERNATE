@@ -11,7 +11,7 @@ import java.util.List;
 public interface ReservationBO extends SuperBO {
     List setStudentIDs() throws SQLException, ClassNotFoundException, IOException;
     List setRoomIDs() throws SQLException, ClassNotFoundException, IOException;
-    Student setStudentsData() throws SQLException,ClassNotFoundException;
-    Room setRoomsData() throws SQLException,ClassNotFoundException;
+    Student setStudentsData(String id) throws SQLException,ClassNotFoundException;
+    Room setRoomsData(String id) throws SQLException,ClassNotFoundException;
     String generateNewRegisterId() throws SQLException,ClassNotFoundException;
 }
