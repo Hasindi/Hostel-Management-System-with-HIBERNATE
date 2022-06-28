@@ -24,7 +24,6 @@ public class RegisterFormController {
     public Label txtAvilability;
     public JFXButton btnRegister;
 
-
     public void RegisterOnAction(ActionEvent actionEvent) {
     }
 }

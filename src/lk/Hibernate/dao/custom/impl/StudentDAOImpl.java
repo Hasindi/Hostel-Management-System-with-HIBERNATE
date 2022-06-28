@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
@@ -66,5 +67,18 @@ public class StudentDAOImpl implements StudentDAO {
         transaction.commit();
         session.close();
         return list;
+    }
+
+    @Override
+    public List setRoomIDs() throws SQLException, ClassNotFoundException, IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<String> sId = new ArrayList<>();
+        Query select_studentId_from_student = session.createQuery("SELECT studentId FROM Student");
+        sId = select_studentId_from_student.list();
+        transaction.commit();
+        session.close();
+        return sId;
     }
 }

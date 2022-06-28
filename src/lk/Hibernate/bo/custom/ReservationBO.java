@@ -4,12 +4,13 @@ import lk.Hibernate.bo.SuperBO;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.entity.Student;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 public interface ReservationBO extends SuperBO {
-    List setStudentIDs() throws SQLException,ClassNotFoundException;
-    List setRoomIDs() throws SQLException,ClassNotFoundException;
+    List setStudentIDs() throws SQLException, ClassNotFoundException, IOException;
+    List setRoomIDs() throws SQLException, ClassNotFoundException, IOException;
     Student setStudentsData() throws SQLException,ClassNotFoundException;
     Room setRoomsData() throws SQLException,ClassNotFoundException;
     String generateNewRegisterId() throws SQLException,ClassNotFoundException;

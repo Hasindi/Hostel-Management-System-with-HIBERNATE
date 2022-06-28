@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO {
@@ -67,4 +68,16 @@ public class RoomDAOImpl implements RoomDAO {
         return list;
     }
 
+    @Override
+    public List setRoomIDs() throws SQLException, ClassNotFoundException, IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<String> rId = new ArrayList<>();
+        Query select_roomId_from_room = session.createQuery("SELECT roomId FROM Room");
+        rId = select_roomId_from_room.list();
+        transaction.commit();
+        session.close();
+        return rId;
+    }
 }
