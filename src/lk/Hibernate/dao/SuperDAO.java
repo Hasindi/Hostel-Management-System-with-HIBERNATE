@@ -13,7 +13,7 @@ public interface SuperDAO<Entity,ID> {
 
     public boolean delete(ID id) throws SQLException, ClassNotFoundException, IOException;
 
-    public Entity find(ID id) throws SQLException, ClassNotFoundException;
+    public Entity find(ID id) throws SQLException, ClassNotFoundException, IOException;
 
     public List<Entity> loadAll() throws SQLException, ClassNotFoundException, IOException;
 }

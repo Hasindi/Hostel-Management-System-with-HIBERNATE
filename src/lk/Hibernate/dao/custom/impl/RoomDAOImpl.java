@@ -51,8 +51,15 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     @Override
-    public Room find(String s) throws SQLException, ClassNotFoundException {
-        return null;
+    public Room find(String id) throws SQLException, ClassNotFoundException, IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Room room = session.get(Room.class, id);
+
+        transaction.commit();
+        session.close();
+        return room;
     }
 
     @Override

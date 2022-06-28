@@ -27,13 +27,13 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
-    public Student setStudentsData(String id) throws SQLException, ClassNotFoundException {
-        return null;
+    public Student setStudentsData(String id) throws SQLException, ClassNotFoundException, IOException {
+        return studentDAO.find(id);
     }
 
     @Override
-    public Room setRoomsData(String id) throws SQLException, ClassNotFoundException {
-        return null;
+    public Room setRoomsData(String id) throws SQLException, ClassNotFoundException, IOException {
+        return roomDAO.find(id);
     }
 
 
