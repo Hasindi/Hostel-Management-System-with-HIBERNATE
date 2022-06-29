@@ -5,6 +5,8 @@ import lk.Hibernate.dao.DAOFactory;
 import lk.Hibernate.dao.custom.impl.ReservationDAOImpl;
 import lk.Hibernate.dao.custom.impl.RoomDAOImpl;
 import lk.Hibernate.dao.custom.impl.StudentDAOImpl;
+import lk.Hibernate.dto.ReservationDTO;
+import lk.Hibernate.entity.Reservation;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.entity.Student;
 
@@ -47,5 +49,16 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException {
         return null;
+    }
+
+    @Override
+    public boolean registerStudent(ReservationDTO reservationDTO) throws SQLException, ClassNotFoundException, IOException {
+        return reservationDAO.add(new Reservation(
+                reservationDTO.getRegisterID(),
+                reservationDTO.getDate(),
+                new Student(reservationDTO.getStudentID()),
+                new Room(reservationDTO.getRoomID()),
+                reservationDTO.getStatus()
+        ));
     }
 }

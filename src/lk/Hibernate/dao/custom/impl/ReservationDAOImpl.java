@@ -15,7 +15,14 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean add(Reservation reservation) throws SQLException, ClassNotFoundException, IOException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(reservation);
+
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override

@@ -31,6 +31,10 @@ public class Room {
         this.qty = qty;
     }
 
+    public Room(String roomID) {
+        this.roomId = roomID;
+    }
+
     public String getRoomId() {
         return roomId;
     }

@@ -38,6 +38,10 @@ public class Student {
 
     }
 
+    public Student(String studentID) {
+        this.studentId = studentID;
+    }
+
     public String getStudentId() {
         return studentId;
     }

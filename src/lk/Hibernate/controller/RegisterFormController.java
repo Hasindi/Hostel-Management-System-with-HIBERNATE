@@ -9,12 +9,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lk.Hibernate.bo.BOFactory;
 import lk.Hibernate.bo.custom.ReservationBO;
+import lk.Hibernate.dto.ReservationDTO;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.entity.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class RegisterFormController {
@@ -108,7 +110,35 @@ public class RegisterFormController {
         cmbStudentID.getItems().addAll(reservationBO.setStudentIDs());
     }
 
-    public void RegisterOnAction(ActionEvent actionEvent) {
+    public void RegisterOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        if(reservationBO.registerStudent(new ReservationDTO(
+                txtRegisterNo.getText(),
+                LocalDate.parse(txtRegisterdate.getText()),
+                cmbStudentID.getValue(),
+                cmbRoomID.getValue(),
+                txtAvilability.getText()
+        ))){
+            new Alert(Alert.AlertType.CONFIRMATION,"Data Added Succussfully...!!!").showAndWait();
 
+        }else{
+            new Alert(Alert.AlertType.WARNING,"UnSuccussfully...!!!").showAndWait();
+
+        }
+        generateNewRegisterId();
+        clearText();
+    }
+
+    private void clearText() {
+        cmbRoomID.setValue(null);
+        cmbStudentID.setValue(null);
+        txtName.clear();
+        txtAddress.clear();
+        txtContactNo.clear();
+        txtDOB.clear();
+        txtGender.clear();
+        txtRoomType.clear();
+        txtKeyMoney.clear();
+        txtQuntity.clear();
+        txtAvilability.setText("");
     }
 }

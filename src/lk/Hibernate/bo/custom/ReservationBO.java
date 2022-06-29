@@ -1,6 +1,7 @@
 package lk.Hibernate.bo.custom;
 
 import lk.Hibernate.bo.SuperBO;
+import lk.Hibernate.dto.ReservationDTO;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.entity.Student;
 
@@ -20,4 +21,6 @@ public interface ReservationBO extends SuperBO {
     String generateNewRegisterId() throws SQLException, ClassNotFoundException, IOException;
 
     String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException;
+
+    boolean registerStudent(ReservationDTO reservationDTO) throws SQLException, ClassNotFoundException, IOException;
 }
