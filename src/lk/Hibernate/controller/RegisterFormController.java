@@ -13,6 +13,8 @@ import lk.Hibernate.entity.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RegisterFormController {
     public JFXTextField txtRegisterNo;
@@ -38,6 +40,7 @@ public class RegisterFormController {
             loadAllStudentIDs();
             loadAllRoomIDs();
             generateNewRegisterId();
+            loadDate();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -61,6 +64,10 @@ public class RegisterFormController {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void loadDate() {
+        txtRegisterdate.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
     }
 
     private void generateNewRegisterId() {
