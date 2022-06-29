@@ -13,7 +13,7 @@ import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
 
-    StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
+    StudentDAOImpl studentDAO = (StudentDAOImpl) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
     public boolean add(StudentDTO studentDTO) throws SQLException, ClassNotFoundException, IOException {

@@ -11,7 +11,6 @@ import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.util.List;
 
-
 @Entity
 public class Student {
     @Id
@@ -34,12 +33,13 @@ public class Student {
         this.gender = gender;
     }
 
+
     public Student() {
 
     }
 
     public Student(String studentID) {
-        this.studentId = studentID;
+        this.studentId= studentID;
     }
 
     public String getStudentId() {

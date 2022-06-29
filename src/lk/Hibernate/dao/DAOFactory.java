@@ -1,5 +1,6 @@
 package lk.Hibernate.dao;
 
+import lk.Hibernate.dao.custom.impl.RegisterDetailsDAOImpl;
 import lk.Hibernate.dao.custom.impl.ReservationDAOImpl;
 import lk.Hibernate.dao.custom.impl.RoomDAOImpl;
 import lk.Hibernate.dao.custom.impl.StudentDAOImpl;
@@ -17,18 +18,20 @@ public class DAOFactory {
 
     //public final static integer values
     public enum DAOTypes {
-        STUDENT,ROOM,RESERVATION
+        STUDENT,ROOM,RESERVATION,REGISTERDETAILS
     }
 
     //method for hide the object creation logic and return what client wants
-    public <T extends SuperDAO> T getDAO(DAOTypes types) {
+    public Supper getDAO(DAOTypes types) {
         switch (types) {
             case STUDENT:
-                return (T) new StudentDAOImpl();
+                return new StudentDAOImpl();
             case ROOM:
-                return (T) new RoomDAOImpl();
+                return new RoomDAOImpl();
             case RESERVATION:
-                return (T) new ReservationDAOImpl();
+                return new ReservationDAOImpl();
+            case REGISTERDETAILS:
+                return new RegisterDetailsDAOImpl();
             default:
                 return null;
         }

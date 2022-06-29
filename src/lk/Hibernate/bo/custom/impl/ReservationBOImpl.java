@@ -16,9 +16,9 @@ import java.util.List;
 
 public class ReservationBOImpl implements ReservationBO {
 
-    StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
-    RoomDAOImpl roomDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ROOM);
-    ReservationDAOImpl reservationDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.RESERVATION);
+    StudentDAOImpl studentDAO = (StudentDAOImpl) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
+    RoomDAOImpl roomDAO = (RoomDAOImpl) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ROOM);
+    ReservationDAOImpl reservationDAO = (ReservationDAOImpl) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.RESERVATION);
 
     @Override
     public List setStudentIDs() throws SQLException, ClassNotFoundException, IOException {

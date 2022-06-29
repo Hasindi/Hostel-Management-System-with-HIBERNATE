@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="917.0" prefWidth="1601.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Hibernate.controller.AllDetailsController">
    <children>
       <Label layoutX="41.0" layoutY="27.0" prefHeight="55.0" prefWidth="352.0" text="REGISTER DETAILS">
@@ -29,8 +28,7 @@
             <TableColumn fx:id="colRegDate" prefWidth="207.0" text="Register Date" />
             <TableColumn fx:id="colSId" prefWidth="217.0" text="StudentID" />
             <TableColumn fx:id="colSName" minWidth="0.0" prefWidth="230.0" text="Student Name" />
-            <TableColumn fx:id="colContact" prefWidth="195.0" text="Contact No." />
-            <TableColumn fx:id="colOption" prefWidth="227.0" text="Option" />
+            <TableColumn fx:id="colContact" prefWidth="421.0" text="Contact No." />
          </columns>
       </TableView>
       <Separator layoutY="331.0" prefHeight="3.0" prefWidth="1601.0" style="-fx-background-color: black;" />

@@ -139,6 +139,7 @@ public class RegisterFormController {
         txtRoomType.clear();
         txtKeyMoney.clear();
         txtQuntity.clear();
+        generateNewRegisterId();
         txtAvilability.setText("");
     }
 }

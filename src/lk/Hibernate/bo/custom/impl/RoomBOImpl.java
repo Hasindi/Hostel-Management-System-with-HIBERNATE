@@ -14,7 +14,7 @@ import java.util.List;
 
 public class RoomBOImpl implements RoomBO {
 
-    RoomDAOImpl roomDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ROOM);
+    RoomDAOImpl roomDAO = (RoomDAOImpl) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ROOM);
 
     @Override
     public boolean add(RoomDTO roomDTO) throws SQLException, ClassNotFoundException, IOException {

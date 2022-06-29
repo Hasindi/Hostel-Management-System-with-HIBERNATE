@@ -1,5 +1,6 @@
 package lk.Hibernate.bo;
 
+import lk.Hibernate.bo.custom.impl.RegisterDetailsBOImpl;
 import lk.Hibernate.bo.custom.impl.ReservationBOImpl;
 import lk.Hibernate.bo.custom.impl.RoomBOImpl;
 import lk.Hibernate.bo.custom.impl.StudentBOImpl;
@@ -16,18 +17,20 @@ public class BOFactory {
 
     //public final static integer values
     public enum BOTypes {
-        STUDENT,ROOM,RESERVATION
+        STUDENT,ROOM,RESERVATION,REGISTERDETAILS
     }
 
     //method for hide the object creation logic and return what client wants
-    public <T extends SuperBO> T getBO(BOTypes boType){
+    public SuperBO getBO(BOTypes boType){
         switch (boType){
             case STUDENT:
-                return (T) new StudentBOImpl();
+                return new StudentBOImpl();
             case ROOM:
-                return (T) new RoomBOImpl();
+                return new RoomBOImpl();
             case RESERVATION:
-                return (T) new ReservationBOImpl();
+                return new ReservationBOImpl();
+            case REGISTERDETAILS:
+                return new RegisterDetailsBOImpl();
             default:
                 return null;
         }

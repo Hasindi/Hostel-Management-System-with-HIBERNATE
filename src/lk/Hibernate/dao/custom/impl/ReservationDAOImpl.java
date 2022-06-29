@@ -21,7 +21,7 @@ public class ReservationDAOImpl implements ReservationDAO {
         session.save(reservation);
 
         transaction.commit();
-        //session.close();
+        session.close();
         return true;
     }
 
@@ -50,7 +50,7 @@ public class ReservationDAOImpl implements ReservationDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("SELECT registerID FROM Reservation ORDER BY registerID");
+        Query query = session.createQuery("SELECT registerID FROM Reservation ORDER BY registerID desc Limit 1");
         transaction.commit();
         if (query.isCacheable()) {
             String id = query.getCacheRegion();

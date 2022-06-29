@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface SuperDAO<Entity,ID> {
+public interface SuperDAO<Entity,ID> extends Supper{
 
     public boolean add(Entity entity) throws SQLException, ClassNotFoundException, IOException;
 

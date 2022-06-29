@@ -1,8 +1,5 @@
 package lk.Hibernate.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 public class Custom {
@@ -39,6 +36,14 @@ public class Custom {
         this.registerID = registerID;
         this.date = date;
         this.status = status;
+    }
+
+    public Custom(String registerID, LocalDate date, String studentId, String name, String contactNo) {
+        this.registerID = registerID;
+        this.date = date;
+        this.studentId = studentId;
+        this.name = name;
+        this.contactNo = contactNo;
     }
 
     public String getStudentId() {
