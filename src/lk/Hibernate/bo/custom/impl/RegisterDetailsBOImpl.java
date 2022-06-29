@@ -3,6 +3,7 @@ package lk.Hibernate.bo.custom.impl;
 import lk.Hibernate.bo.custom.RegisterDetailsBO;
 import lk.Hibernate.dao.DAOFactory;
 import lk.Hibernate.dao.custom.impl.RoomDAOImpl;
+import lk.Hibernate.entity.Room;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,5 +16,10 @@ public class RegisterDetailsBOImpl implements RegisterDetailsBO {
     @Override
     public List loadRoomIDs() throws SQLException, ClassNotFoundException, IOException {
         return roomDAO.setRoomIDs();
+    }
+
+    @Override
+    public Room setRoomData(String id) throws SQLException, ClassNotFoundException, IOException {
+        return roomDAO.find(id);
     }
 }

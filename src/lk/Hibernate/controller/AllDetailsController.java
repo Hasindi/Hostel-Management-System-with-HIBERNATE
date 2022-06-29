@@ -6,6 +6,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import lk.Hibernate.bo.BOFactory;
 import lk.Hibernate.bo.custom.ReservationBO;
+import lk.Hibernate.entity.Room;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,6 +32,23 @@ public class AllDetailsController {
         }catch(Exception e){
             e.printStackTrace();
         }
+
+        cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            try{
+
+                setRoomData(newValue);
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void setRoomData(String id) throws SQLException, IOException, ClassNotFoundException {
+        Room room = reservationBO.setRoomsData(id);
+        txtRoomType.setText(room.getType());
+        txtKeyMoney.setText(String.valueOf(room.getKeyMoney()));
+        txtQuntity.setText(String.valueOf(room.getQty()));
     }
 
     private void loadAllRoomIDs() throws SQLException, IOException, ClassNotFoundException {
