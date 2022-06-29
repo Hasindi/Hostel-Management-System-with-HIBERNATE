@@ -16,7 +16,9 @@ public class FactoryConfiguration {
 
     private FactoryConfiguration() throws IOException {
         Configuration configuration = new Configuration();
+
         Properties p = new Properties();
+
         p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("config.Properties"));
         configuration.setProperties(p);
 

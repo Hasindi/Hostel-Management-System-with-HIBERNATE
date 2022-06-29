@@ -121,9 +121,9 @@ public class ManageRoomFormController {
 
     private void cmbLoard() {
         cmbRoomType.getItems().add("AC");
-        cmbRoomType.getItems().add("NON/AC");
-        cmbRoomType.getItems().add("Female");
-        cmbRoomType.getItems().add("Female");
+        cmbRoomType.getItems().add("NON-AC");
+        cmbRoomType.getItems().add("AC/Food");
+        cmbRoomType.getItems().add("NON-AC/Food");
     }
 
     private void setaData(RoomDTO r) {

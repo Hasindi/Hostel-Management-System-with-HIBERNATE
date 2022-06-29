@@ -19,7 +19,6 @@ import java.util.Date;
 public class RegisterFormController {
     public JFXTextField txtRegisterNo;
     public JFXTextField txtRegisterdate;
-    public TextField txtLastCustomerId;
     public TextField txtContactNo;
     public TextField txtName;
     public ComboBox<String> cmbStudentID;

@@ -2,7 +2,6 @@ package lk.Hibernate.dto;
 
 import java.time.LocalDate;
 
-
 public class ReservationDTO {
     private String registerID;
     private LocalDate date;
