@@ -24,14 +24,14 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtRegisterNo" focusColor="BLACK" layoutX="417.0" layoutY="148.0" prefHeight="39.0" prefWidth="265.0" promptText="Register No." unFocusColor="BLACK">
+      <JFXTextField fx:id="txtRegisterNo" focusColor="BLACK" layoutX="436.0" layoutY="178.0" prefHeight="39.0" prefWidth="265.0" promptText="Register No." unFocusColor="BLACK">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtRegisterdate" focusColor="BLACK" layoutX="912.0" layoutY="148.0" prefHeight="39.0" prefWidth="295.0" promptText="Register Date" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtRegisterdate" focusColor="BLACK" layoutX="931.0" layoutY="178.0" prefHeight="39.0" prefWidth="295.0" promptText="Register Date" unFocusColor="BLACK">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </JFXTextField>
       <Label layoutX="64.0" layoutY="333.0" text="Student Details" textFill="#bf312b">
@@ -40,20 +40,6 @@
          </font>
       </Label>
       <Separator layoutX="64.0" layoutY="368.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" />
-      <AnchorPane layoutX="57.0" layoutY="213.0" prefHeight="39.0" prefWidth="1502.0" style="-fx-background-color: D2EDD7;">
-         <children>
-            <Label layoutX="26.0" layoutY="11.0" text="Last Student Id : " textFill="#709f7b">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtLastCustomerId" layoutX="165.0" layoutY="5.0" prefHeight="25.0" prefWidth="146.0" style="-fx-background-color: D2EDD7;">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </TextField>
-         </children>
-      </AnchorPane>
       <Separator layoutX="-6.0" layoutY="281.0" prefHeight="3.0" prefWidth="1601.0" style="-fx-background-color: black;" />
       <Label layoutX="731.0" layoutY="332.0" text="Room Details" textFill="#bf312b">
          <font>
