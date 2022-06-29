@@ -21,7 +21,7 @@ public class ReservationDAOImpl implements ReservationDAO {
         session.save(reservation);
 
         transaction.commit();
-        session.close();
+        //session.close();
         return true;
     }
 
