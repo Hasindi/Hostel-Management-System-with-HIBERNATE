@@ -37,6 +37,7 @@ public class RegisterFormController {
         try{
             loadAllStudentIDs();
             loadAllRoomIDs();
+            generateNewRegisterId();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -60,6 +61,14 @@ public class RegisterFormController {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void generateNewRegisterId() {
+        try{
+            txtRegisterNo.setText(reservationBO.generateNewRegisterId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void setRoomData(String id) throws SQLException, ClassNotFoundException, IOException {

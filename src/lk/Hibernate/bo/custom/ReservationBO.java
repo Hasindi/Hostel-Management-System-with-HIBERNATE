@@ -13,5 +13,5 @@ public interface ReservationBO extends SuperBO {
     List setRoomIDs() throws SQLException, ClassNotFoundException, IOException;
     Student setStudentsData(String id) throws SQLException, ClassNotFoundException, IOException;
     Room setRoomsData(String id) throws SQLException, ClassNotFoundException, IOException;
-    String generateNewRegisterId() throws SQLException,ClassNotFoundException;
+    String generateNewRegisterId() throws SQLException, ClassNotFoundException, IOException;
 }

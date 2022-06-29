@@ -2,6 +2,7 @@ package lk.Hibernate.bo.custom.impl;
 
 import lk.Hibernate.bo.custom.ReservationBO;
 import lk.Hibernate.dao.DAOFactory;
+import lk.Hibernate.dao.custom.impl.ReservationDAOImpl;
 import lk.Hibernate.dao.custom.impl.RoomDAOImpl;
 import lk.Hibernate.dao.custom.impl.StudentDAOImpl;
 import lk.Hibernate.entity.Room;
@@ -15,6 +16,7 @@ public class ReservationBOImpl implements ReservationBO {
 
     StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
     RoomDAOImpl roomDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ROOM);
+    ReservationDAOImpl reservationDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.RESERVATION);
 
     @Override
     public List setStudentIDs() throws SQLException, ClassNotFoundException, IOException {
@@ -38,7 +40,7 @@ public class ReservationBOImpl implements ReservationBO {
 
 
     @Override
-    public String generateNewRegisterId() throws SQLException, ClassNotFoundException {
-        return null;
+    public String generateNewRegisterId() throws SQLException, ClassNotFoundException, IOException {
+        return reservationDAO.generateNewId();
     }
 }
