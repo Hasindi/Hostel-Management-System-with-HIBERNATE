@@ -10,8 +10,14 @@ import java.util.List;
 
 public interface ReservationBO extends SuperBO {
     List setStudentIDs() throws SQLException, ClassNotFoundException, IOException;
+
     List setRoomIDs() throws SQLException, ClassNotFoundException, IOException;
+
     Student setStudentsData(String id) throws SQLException, ClassNotFoundException, IOException;
+
     Room setRoomsData(String id) throws SQLException, ClassNotFoundException, IOException;
+
     String generateNewRegisterId() throws SQLException, ClassNotFoundException, IOException;
+
+    String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException;
 }

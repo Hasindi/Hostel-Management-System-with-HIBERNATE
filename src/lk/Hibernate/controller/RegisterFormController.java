@@ -3,6 +3,7 @@ package lk.Hibernate.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -58,11 +59,15 @@ public class RegisterFormController {
             try{
 
                 setRoomData(newValue);
+                roomAvilability(newValue);
 
             }catch (Exception e){
                 e.printStackTrace();
             }
         });
+    }
+
+    private void roomAvilability(String id) throws SQLException, IOException, ClassNotFoundException {
     }
 
     private void loadDate() {

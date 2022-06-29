@@ -45,7 +45,6 @@ public class ReservationDAOImpl implements ReservationDAO {
 
         Query query = session.createQuery("SELECT registerID FROM Reservation ORDER BY registerID");
         transaction.commit();
-        session.close();
         if (query.isCacheable()) {
             String id = query.getCacheRegion();
             int newRegisterId = Integer.parseInt(id.replace("REG-", "")) + 1;
@@ -53,5 +52,10 @@ public class ReservationDAOImpl implements ReservationDAO {
         } else {
             return "REG-001";
         }
+    }
+
+    @Override
+    public String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException {
+        return null;
     }
 }

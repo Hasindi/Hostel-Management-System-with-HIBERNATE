@@ -8,4 +8,5 @@ import java.sql.SQLException;
 
 public interface ReservationDAO extends SuperDAO<Reservation,String> {
     String generateNewId() throws SQLException, ClassNotFoundException, IOException;
+    String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException;
 }

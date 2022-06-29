@@ -43,4 +43,9 @@ public class ReservationBOImpl implements ReservationBO {
     public String generateNewRegisterId() throws SQLException, ClassNotFoundException, IOException {
         return reservationDAO.generateNewId();
     }
+
+    @Override
+    public String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException {
+        return null;
+    }
 }
