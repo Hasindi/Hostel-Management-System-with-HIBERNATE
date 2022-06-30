@@ -1,9 +1,6 @@
 package lk.Hibernate.dao;
 
-import lk.Hibernate.dao.custom.impl.RegisterDetailsDAOImpl;
-import lk.Hibernate.dao.custom.impl.ReservationDAOImpl;
-import lk.Hibernate.dao.custom.impl.RoomDAOImpl;
-import lk.Hibernate.dao.custom.impl.StudentDAOImpl;
+import lk.Hibernate.dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;

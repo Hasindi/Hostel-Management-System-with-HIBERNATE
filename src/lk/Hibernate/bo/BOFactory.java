@@ -1,9 +1,6 @@
 package lk.Hibernate.bo;
 
-import lk.Hibernate.bo.custom.impl.RegisterDetailsBOImpl;
-import lk.Hibernate.bo.custom.impl.ReservationBOImpl;
-import lk.Hibernate.bo.custom.impl.RoomBOImpl;
-import lk.Hibernate.bo.custom.impl.StudentBOImpl;
+import lk.Hibernate.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;

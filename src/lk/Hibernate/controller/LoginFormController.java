@@ -22,10 +22,12 @@ public class LoginFormController {
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {
-        if(txtUserName.getText().equals("admin") & pwdPassword.getText().equals("1234") || txtUserName.getText().equals("cashier")& pwdPassword.getText().equals("4567") ){
+        if(txtUserName.getText().equals("admin") & pwdPassword.getText().equals("1234")  ){
+
             Stage stage=(Stage) loginContext.getScene().getWindow();
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashBoard.fxml"))));
             stage.centerOnScreen();
+
         }else{
             new Alert(Alert.AlertType.WARNING,"Invalid Login...!").show();
         }

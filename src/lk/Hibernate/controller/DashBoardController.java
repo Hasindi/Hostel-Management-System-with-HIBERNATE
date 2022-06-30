@@ -1,6 +1,7 @@
 package lk.Hibernate.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -8,8 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,7 +20,6 @@ import lk.Hibernate.bo.BOFactory;
 import lk.Hibernate.bo.custom.ReservationBO;
 import lk.Hibernate.bo.custom.RoomBO;
 import lk.Hibernate.bo.custom.StudentBO;
-import lk.Hibernate.bo.custom.impl.StudentBOImpl;
 import lk.Hibernate.dto.ReservationDTO;
 import lk.Hibernate.dto.StudentDTO;
 import lk.Hibernate.entity.Room;
@@ -29,6 +30,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 public class DashBoardController implements NavigationUtil {
 
@@ -36,7 +38,6 @@ public class DashBoardController implements NavigationUtil {
     public Label lblStudentCount;
     public Label lblRoomAvilableCount1;
     public Label lblRoomReseivedCount1;
-    public Label lblTotalIncome;
     public Label lblDay;
     public Label lblDate;
     public Label lblTime;
@@ -48,10 +49,13 @@ public class DashBoardController implements NavigationUtil {
     public AnchorPane loardFormContext;
     public Label lblAllRooms;
     public JFXComboBox<String> cmbRoomIds;
+    public JFXTextField txtPassword;
+    public JFXTextField txtUserName;
 
     private final RoomBO roomBO = (RoomBO)BOFactory.getInstance().getBO(BOFactory.BOTypes.ROOM);
     private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
     private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
+
 
     public void initialize() {
         try {
@@ -127,7 +131,15 @@ public class DashBoardController implements NavigationUtil {
         clock.play();
     }
 
-    public void LogoutOnAction(ActionEvent actionEvent) {
+    public void LogoutOnAction(ActionEvent actionEvent) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are You Sure...?", ButtonType.YES,ButtonType.NO);
+        Optional<ButtonType> buttonType = alert.showAndWait();
+
+        if (buttonType.get().equals(ButtonType.YES)) {
+            Stage stage = (Stage) AdminDashBoardContext.getScene().getWindow();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+            stage.centerOnScreen();
+        }
     }
 
     public void DashboardOnAction(ActionEvent actionEvent) throws IOException {
