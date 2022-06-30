@@ -51,6 +51,7 @@ public class DashBoardController implements NavigationUtil {
 
     private final RoomBO roomBO = (RoomBO)BOFactory.getInstance().getBO(BOFactory.BOTypes.ROOM);
     private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
+    private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
 
     public void initialize() {
         try {
@@ -100,6 +101,12 @@ public class DashBoardController implements NavigationUtil {
     }
 
     private void loadAllDashLabels() throws SQLException, IOException, ClassNotFoundException {
+        int studentCount = 0;
+        for (StudentDTO loadAllStudent : studentBO.loadAllStudents()) {
+            studentCount++;
+
+        }
+        lblStudentCount.setText(String.valueOf(studentCount));
     }
 
     private void DateTime() {
