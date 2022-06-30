@@ -77,4 +77,9 @@ public class ReservationBOImpl implements ReservationBO {
             return reserveDTOS;
         }
 
+    @Override
+    public String lastStudentID() throws SQLException, ClassNotFoundException, IOException {
+        return studentDAO.lastStudentID();
+    }
+
 }

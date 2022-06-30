@@ -11,4 +11,5 @@ public interface ReservationDAO extends SuperDAO<Reservation,String> {
     String generateNewId() throws SQLException, ClassNotFoundException, IOException;
 
     List<Reservation> searchReservedRoomById(String id) throws IOException;
+
 }

@@ -23,4 +23,6 @@ public interface ReservationBO extends SuperBO {
     boolean registerStudent(ReservationDTO reservationDTO) throws SQLException, ClassNotFoundException, IOException;
 
     List<ReservationDTO> reservedRoomByTD(String id) throws SQLException, ClassNotFoundException, IOException;
+
+    String lastStudentID()throws SQLException, ClassNotFoundException, IOException;
 }

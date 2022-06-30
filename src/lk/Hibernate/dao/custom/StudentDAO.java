@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface StudentDAO extends SuperDAO<Student,String> {
     List setRoomIDs() throws SQLException, ClassNotFoundException, IOException;
+
+    String lastStudentID()throws IOException;
 }

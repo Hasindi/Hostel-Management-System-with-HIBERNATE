@@ -53,14 +53,10 @@ public class ReservationDAOImpl implements ReservationDAO {
         Transaction transaction = session.beginTransaction();
 
         NativeQuery sqlQuery = session.createSQLQuery("SELECT registerID FROM Reservation ORDER BY registerID DESC LIMIT 1");
-        transaction.commit();
-        if (sqlQuery.isCacheable()) {
-            String id = sqlQuery.getCacheRegion();
-            int newRegisterId = Integer.parseInt(id.replace("REG-", "")) + 1;
-            return String.format("REG-%03d", newRegisterId);
-        } else {
-            return "REG-001";
-        }
+
+        String id = (String)(sqlQuery.uniqueResult());
+        int newRegisterId = Integer.parseInt(id.replace("REG-", "")) + 1;
+        return String.format("REG-%03d", newRegisterId);
     }
 
     public List<Reservation> searchReservedRoomById (String id) throws IOException {

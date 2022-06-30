@@ -36,9 +36,9 @@ public class RegisterFormController {
     public TextField txtKeyMoney;
     public Label txtAvilability;
     public JFXButton btnRegister;
+    public TextField lblLastStudentId;
 
     private final RoomBO roomBO = (RoomBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ROOM);
-
     private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
 
     public void initialize(){
@@ -47,6 +47,7 @@ public class RegisterFormController {
             loadAllRoomIDs();
             generateNewRegisterId();
             loadDate();
+            lastStudentID();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -107,6 +108,10 @@ public class RegisterFormController {
         });
     }
 
+    private void lastStudentID() throws SQLException, IOException, ClassNotFoundException {
+        lblLastStudentId.setText(reservationBO.lastStudentID());
+    }
+
     private void loadDate() {
         txtRegisterdate.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
     }
@@ -156,8 +161,7 @@ public class RegisterFormController {
             new Alert(Alert.AlertType.CONFIRMATION,"Data Added Succussfully...!!!").showAndWait();
 
         }else{
-            new Alert(Alert.AlertType.WARNING,"UnSuccussfully...!!!").showAndWait();
-
+            new Alert(Alert.AlertType.WARNING,"Data Not Added Succussfully...!!!").showAndWait();
         }
         generateNewRegisterId();
         clearText();
@@ -174,7 +178,7 @@ public class RegisterFormController {
         txtRoomType.clear();
         txtKeyMoney.clear();
         txtQuntity.clear();
-        generateNewRegisterId();
+        txtRegisterNo.getText();
         txtAvilability.setText("");
     }
 }

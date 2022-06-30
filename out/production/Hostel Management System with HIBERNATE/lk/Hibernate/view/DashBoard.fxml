@@ -52,6 +52,9 @@
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust contrast="0.38" />
+                     </effect>
                   </Label>
                   <Text layoutX="1181.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Details">
                      <font>
@@ -99,7 +102,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <AnchorPane layoutX="423.0" layoutY="106.0" prefHeight="279.0" prefWidth="1100.0" style="-fx-background-color: #E9ECE9;">
+                  <AnchorPane layoutX="423.0" layoutY="106.0" prefHeight="308.0" prefWidth="1100.0" style="-fx-background-color: #E9ECE9;">
                      <children>
                         <JFXComboBox fx:id="cmbRoomIds" focusColor="#365fda" layoutX="360.0" layoutY="25.0" prefHeight="36.0" prefWidth="397.0" promptText="ROOM IDs">
                            <unFocusColor>
@@ -176,10 +179,10 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="294.0" layoutY="471.0" prefHeight="388.0" prefWidth="618.0">
+                  <AnchorPane layoutX="252.0" layoutY="481.0" prefHeight="388.0" prefWidth="618.0" style="-fx-background-color: #B1B1B1;">
                      <children>
-                        <JFXTextField fx:id="txtPassword" layoutX="270.0" layoutY="210.0" prefHeight="31.0" prefWidth="248.0" />
-                        <JFXTextField fx:id="txtUserName" layoutX="270.0" layoutY="126.0" prefHeight="31.0" prefWidth="248.0" />
+                        <JFXTextField fx:id="txtPassword" layoutX="270.0" layoutY="210.0" prefHeight="31.0" prefWidth="248.0" unFocusColor="BLACK" />
+                        <JFXTextField fx:id="txtUserName" layoutX="270.0" layoutY="126.0" prefHeight="31.0" prefWidth="248.0" unFocusColor="BLACK" />
                         <Label layoutX="130.0" layoutY="126.0" text="User Name :">
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
@@ -210,8 +213,8 @@
                            <textFill>
                               <RadialGradient centerX="0.5170454545454546" centerY="0.5" radius="0.5">
                                  <stops>
-                                    <Stop color="#e11499" />
-                                    <Stop color="#2db7bd" offset="1.0" />
+                                    <Stop color="#f806a7" />
+                                    <Stop color="#009297" offset="1.0" />
                                  </stops>
                               </RadialGradient>
                            </textFill>
@@ -219,7 +222,7 @@
                               <Font name="System Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Separator layoutX="224.0" layoutY="76.0" prefWidth="200.0" style="-fx-background-color: #e01399;" />
+                        <Separator layoutX="224.0" layoutY="76.0" prefWidth="200.0" style="-fx-background-color: #ae0877;" />
                         <JFXButton layoutX="228.0" layoutY="292.0" prefHeight="48.0" prefWidth="192.0" style="-fx-background-color: #ad7e00;" text="UPDATE">
                            <font>
                               <Font name="System Bold" size="21.0" />
@@ -237,6 +240,9 @@
                            </effect>
                         </JFXButton>
                      </children>
+                     <effect>
+                        <ColorAdjust contrast="0.38" />
+                     </effect>
                   </AnchorPane>
                </children>
             </AnchorPane>

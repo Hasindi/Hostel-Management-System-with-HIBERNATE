@@ -5,6 +5,7 @@ import lk.Hibernate.entity.Student;
 import lk.Hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.io.IOException;
@@ -87,5 +88,17 @@ public class StudentDAOImpl implements StudentDAO {
         transaction.commit();
         session.close();
         return sId;
+    }
+
+
+    @Override
+    public String lastStudentID() throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        NativeQuery sqlQuery = session.createSQLQuery("SELECT studentId FROM Student ORDER BY studentId DESC LIMIT 1");
+        String id = (String)(sqlQuery.uniqueResult());
+
+        return id;
     }
 }
