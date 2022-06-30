@@ -158,7 +158,7 @@
                   <Font name="System Bold" size="37.0" />
                </font>
             </Label>
-            <Label fx:id="txtAvilability" layoutX="624.0" layoutY="323.0" text="Avilable">
+            <Label fx:id="txtAvilability" layoutX="624.0" layoutY="323.0">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>

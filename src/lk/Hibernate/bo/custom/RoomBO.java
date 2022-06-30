@@ -2,6 +2,7 @@ package lk.Hibernate.bo.custom;
 
 import lk.Hibernate.bo.SuperBO;
 import lk.Hibernate.dto.RoomDTO;
+import lk.Hibernate.entity.Room;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,4 +16,6 @@ public interface RoomBO extends SuperBO {
     public boolean delete(String id) throws SQLException, ClassNotFoundException, IOException;
 
     List<RoomDTO> loadAllRooms() throws SQLException, ClassNotFoundException, IOException;
+
+    public Room getRoom(String id) throws SQLException, ClassNotFoundException, IOException;
 }

@@ -2,9 +2,11 @@ package lk.Hibernate.dao.custom.impl;
 
 import lk.Hibernate.dao.custom.ReservationDAO;
 import lk.Hibernate.entity.Reservation;
+import lk.Hibernate.entity.Room;
 import lk.Hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.io.IOException;
@@ -50,10 +52,10 @@ public class ReservationDAOImpl implements ReservationDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("SELECT registerID FROM Reservation ORDER BY registerID desc Limit 1");
+        NativeQuery sqlQuery = session.createSQLQuery("SELECT registerID FROM Reservation ORDER BY registerID DESC LIMIT 1");
         transaction.commit();
-        if (query.isCacheable()) {
-            String id = query.getCacheRegion();
+        if (sqlQuery.isCacheable()) {
+            String id = sqlQuery.getCacheRegion();
             int newRegisterId = Integer.parseInt(id.replace("REG-", "")) + 1;
             return String.format("REG-%03d", newRegisterId);
         } else {
@@ -61,8 +63,22 @@ public class ReservationDAOImpl implements ReservationDAO {
         }
     }
 
-    @Override
-    public String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException {
-        return null;
+    public List<Reservation> searchReservedRoomById (String id) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql = "FROM Reservation WHERE room = :roomId";
+        Query query = session.createQuery(hql);
+
+        Room room = new Room();
+        room.setRoomId(id);
+
+        query.setParameter("roomId", room);
+        List<Reservation> r = query.list();
+
+        transaction.commit();
+        session.close();
+
+        return r;
     }
 }

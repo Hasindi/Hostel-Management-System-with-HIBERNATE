@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lk.Hibernate.bo.BOFactory;
 import lk.Hibernate.bo.custom.ReservationBO;
+import lk.Hibernate.bo.custom.RoomBO;
 import lk.Hibernate.dto.ReservationDTO;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.entity.Student;
@@ -18,6 +19,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 public class RegisterFormController {
     public JFXTextField txtRegisterNo;
@@ -34,6 +36,8 @@ public class RegisterFormController {
     public TextField txtKeyMoney;
     public Label txtAvilability;
     public JFXButton btnRegister;
+
+    private final RoomBO roomBO = (RoomBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ROOM);
 
     private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
 
@@ -57,19 +61,52 @@ public class RegisterFormController {
             }
         });
 
+
         cmbRoomID.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            try{
 
-                setRoomData(newValue);
-                roomAvilability(newValue);
+            if(newValue!=null){
 
-            }catch (Exception e){
-                e.printStackTrace();
+                try{
+
+                    setRoomData(newValue);
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+                Room room = null;
+
+                try {
+
+                    room = roomBO.getRoom(newValue);
+
+                } catch (SQLException | ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
+                int roomQTY = room.getQty();
+
+                try {
+
+                    List<ReservationDTO> reservationDTOS = reservationBO.reservedRoomByTD(newValue);
+
+                    int registerCount = 0;
+                    for (ReservationDTO reservationDTO : reservationDTOS) {
+                        registerCount++;
+                    }
+                    int remaindQuntity = roomQTY-registerCount;
+
+                    if(remaindQuntity == 0){
+                        txtAvilability.setText("UNAVILABLE");
+
+                    }else{
+                        txtAvilability.setText("AVILABLE");
+
+                    }
+                } catch (SQLException | ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
-    }
-
-    private void roomAvilability(String id) throws SQLException, IOException, ClassNotFoundException {
     }
 
     private void loadDate() {

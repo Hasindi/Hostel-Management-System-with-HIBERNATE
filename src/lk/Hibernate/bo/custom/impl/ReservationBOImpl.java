@@ -12,6 +12,7 @@ import lk.Hibernate.entity.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationBOImpl implements ReservationBO {
@@ -47,11 +48,6 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
-    public String roomAvilability(String id) throws SQLException, ClassNotFoundException, IOException {
-        return null;
-    }
-
-    @Override
     public boolean registerStudent(ReservationDTO reservationDTO) throws SQLException, ClassNotFoundException, IOException {
         return reservationDAO.add(new Reservation(
                 reservationDTO.getRegisterID(),
@@ -61,4 +57,24 @@ public class ReservationBOImpl implements ReservationBO {
                 reservationDTO.getStatus()
         ));
     }
+
+    @Override
+    public List<ReservationDTO> reservedRoomByTD(String id) throws SQLException, ClassNotFoundException, IOException {
+            List<Reservation> reserves = reservationDAO.searchReservedRoomById(id);
+
+            List<ReservationDTO> reserveDTOS=new ArrayList<>();
+
+            for (Reservation reserve : reserves) {
+                reserveDTOS.add(new ReservationDTO(
+                        reserve.getRegisterID(),
+                        reserve.getDate(),
+                        reserve.getStudent().getStudentId(),
+                        reserve.getRoom().getRoomId(),
+                        reserve.getStatus()
+                ));
+
+            }
+            return reserveDTOS;
+        }
+
 }

@@ -8,15 +8,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.Hibernate.bo.BOFactory;
+import lk.Hibernate.bo.custom.ReservationBO;
+import lk.Hibernate.bo.custom.RoomBO;
+import lk.Hibernate.bo.custom.StudentBO;
+import lk.Hibernate.bo.custom.impl.StudentBOImpl;
+import lk.Hibernate.dto.ReservationDTO;
+import lk.Hibernate.dto.StudentDTO;
+import lk.Hibernate.entity.Room;
 import lk.Hibernate.util.NavigationUtil;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 public class DashBoardController implements NavigationUtil {
 
@@ -36,17 +47,15 @@ public class DashBoardController implements NavigationUtil {
     public AnchorPane loardFormContext;
 
     public void initialize() {
-        DateTime();
-
-        /*try {
+        try {
             loadAllDashLabels();
-
-        } catch (ClassNotFoundException | SQLException e) {
+            DateTime();
+        } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
-    private void loadAllDashLabels() {
+    private void loadAllDashLabels() throws SQLException, IOException, ClassNotFoundException {
     }
 
     private void DateTime() {

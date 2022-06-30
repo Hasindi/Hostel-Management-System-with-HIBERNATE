@@ -57,4 +57,9 @@ public class RoomBOImpl implements RoomBO {
         }
         return arrayList;
     }
+
+    @Override
+    public Room getRoom(String id) throws SQLException, ClassNotFoundException, IOException {
+        return roomDAO.find(id);
+    }
 }
