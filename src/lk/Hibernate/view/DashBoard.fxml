@@ -27,79 +27,82 @@
          <children>
             <AnchorPane fx:id="loardFormContext" layoutX="301.0" layoutY="95.0" prefHeight="917.0" prefWidth="1601.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="108.0" layoutY="157.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #00B8EE;">
+                  <Label layoutX="78.0" layoutY="208.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #00B8EE;">
                      <padding>
                         <Insets top="20.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="108.0" layoutY="276.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #08A4D2;" />
-                  <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="282.0" layoutY="176.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+                  <Label layoutX="78.0" layoutY="327.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #08A4D2;" />
+                  <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="252.0" layoutY="227.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assert/StudentCount.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="154.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student">
+                  <Text fill="WHITE" layoutX="124.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Label fx:id="lblStudentCount" layoutX="169.0" layoutY="184.0" textFill="WHITE">
+                  <Label fx:id="lblStudentCount" layoutX="139.0" layoutY="235.0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="41.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="1263.0" layoutY="547.0" opacity="0.74" prefHeight="295.0" prefWidth="261.0" style="-fx-background-color: #B1B1B1;">
+                  <Label alignment="CENTER" layoutX="1099.0" layoutY="518.0" opacity="0.74" prefHeight="295.0" prefWidth="261.0" style="-fx-background-color: #B1B1B1;">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust contrast="0.38" />
+                     </effect>
                   </Label>
-                  <Text layoutX="1345.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Details">
+                  <Text layoutX="1181.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Details">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="1291.0" layoutY="672.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank    :  ">
+                  <Text layoutX="1127.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank    :  ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="1291.0" layoutY="699.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A/c No : ">
+                  <Text layoutX="1127.0" layoutY="670.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A/c No : ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Separator layoutX="1297.0" layoutY="611.0" prefWidth="200.0" style="-fx-background-color: black;" />
-                  <Text layoutX="1368.0" layoutY="756.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NSB" wrappingWidth="100.14453125">
+                  <Separator layoutX="1133.0" layoutY="582.0" prefWidth="200.0" style="-fx-background-color: black;" />
+                  <Text layoutX="1204.0" layoutY="727.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NSB" wrappingWidth="100.14453125">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="1368.0" layoutY="672.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOC" wrappingWidth="100.14453125">
+                  <Text layoutX="1204.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOC" wrappingWidth="100.14453125">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="1368.0" layoutY="699.0" strokeType="OUTSIDE" strokeWidth="0.0" text="234567898" wrappingWidth="100.14453125">
+                  <Text layoutX="1204.0" layoutY="670.0" strokeType="OUTSIDE" strokeWidth="0.0" text="234567898" wrappingWidth="100.14453125">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="1368.0" layoutY="783.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22345678" wrappingWidth="100.14453125">
+                  <Text layoutX="1204.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22345678" wrappingWidth="100.14453125">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="1291.0" layoutY="756.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank    :  ">
+                  <Text layoutX="1127.0" layoutY="727.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank    :  ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="1291.0" layoutY="783.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A/c No : ">
+                  <Text layoutX="1127.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A/c No : ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <AnchorPane layoutX="453.0" layoutY="55.0" prefHeight="279.0" prefWidth="1100.0" style="-fx-background-color: #E9ECE9;">
+                  <AnchorPane layoutX="423.0" layoutY="106.0" prefHeight="308.0" prefWidth="1100.0" style="-fx-background-color: #E9ECE9;">
                      <children>
                         <JFXComboBox fx:id="cmbRoomIds" focusColor="#365fda" layoutX="360.0" layoutY="25.0" prefHeight="36.0" prefWidth="397.0" promptText="ROOM IDs">
                            <unFocusColor>
@@ -138,9 +141,9 @@
                            </padding>
                         </Label>
                         <Label layoutX="760.0" layoutY="222.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #D0619E;" />
-                        <ImageView fitHeight="94.0" fitWidth="100.0" layoutX="942.0" layoutY="122.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="94.0" fitWidth="100.0" layoutX="950.0" layoutY="121.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assert/house-black-silhouette-without-door.png" />
+                              <Image url="@../assert/remain.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="806.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avilable Room">
@@ -159,9 +162,9 @@
                            </padding>
                         </Label>
                         <Label layoutX="35.0" layoutY="222.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #088947;" />
-                        <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="209.0" layoutY="122.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="115.0" fitWidth="115.0" layoutX="202.0" layoutY="110.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assert/StudentCount.png" />
+                              <Image url="@../assert/AllRoom.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="81.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Rooms">
@@ -176,10 +179,10 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="353.0" layoutY="469.0" prefHeight="388.0" prefWidth="618.0">
+                  <AnchorPane layoutX="252.0" layoutY="481.0" prefHeight="388.0" prefWidth="618.0" style="-fx-background-color: #B1B1B1;">
                      <children>
-                        <JFXTextField fx:id="txtPassword" layoutX="270.0" layoutY="210.0" prefHeight="31.0" prefWidth="248.0" />
-                        <JFXTextField fx:id="txtUserName" layoutX="270.0" layoutY="126.0" prefHeight="31.0" prefWidth="248.0" />
+                        <JFXTextField fx:id="txtPassword" layoutX="270.0" layoutY="210.0" prefHeight="31.0" prefWidth="248.0" unFocusColor="BLACK" />
+                        <JFXTextField fx:id="txtUserName" layoutX="270.0" layoutY="126.0" prefHeight="31.0" prefWidth="248.0" unFocusColor="BLACK" />
                         <Label layoutX="130.0" layoutY="126.0" text="User Name :">
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
@@ -210,8 +213,8 @@
                            <textFill>
                               <RadialGradient centerX="0.5170454545454546" centerY="0.5" radius="0.5">
                                  <stops>
-                                    <Stop color="#e11499" />
-                                    <Stop color="#2db7bd" offset="1.0" />
+                                    <Stop color="#f806a7" />
+                                    <Stop color="#009297" offset="1.0" />
                                  </stops>
                               </RadialGradient>
                            </textFill>
@@ -219,7 +222,7 @@
                               <Font name="System Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Separator layoutX="224.0" layoutY="76.0" prefWidth="200.0" style="-fx-background-color: #e01399;" />
+                        <Separator layoutX="224.0" layoutY="76.0" prefWidth="200.0" style="-fx-background-color: #ae0877;" />
                         <JFXButton layoutX="228.0" layoutY="292.0" prefHeight="48.0" prefWidth="192.0" style="-fx-background-color: #ad7e00;" text="UPDATE">
                            <font>
                               <Font name="System Bold" size="21.0" />
@@ -237,6 +240,9 @@
                            </effect>
                         </JFXButton>
                      </children>
+                     <effect>
+                        <ColorAdjust contrast="0.38" />
+                     </effect>
                   </AnchorPane>
                </children>
             </AnchorPane>
@@ -276,7 +282,7 @@
                   <Insets left="5.0" right="5.0" />
                </padding>
                <HBox.margin>
-                  <Insets left="1040.0" top="17.0" />
+                  <Insets left="1055.0" top="17.0" />
                </HBox.margin>
             </Button>
          </children>
