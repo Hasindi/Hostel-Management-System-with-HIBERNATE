@@ -25,7 +25,7 @@ public class RegisterDetailsDAOImpl implements RegisterDetailsDAO {
         
         List<Object[]>list = query.list();
 
-        ArrayList<Custom> allDetails = new ArrayList<>();
+        List<Custom> allDetails = new ArrayList<>();
         for (Object[] objects : list) {
             allDetails.add(new Custom(
                     objects[0].toString(),
@@ -35,8 +35,7 @@ public class RegisterDetailsDAOImpl implements RegisterDetailsDAO {
                     objects[4].toString()
             ));
         }
-
         transaction.commit();
-        return null;
+        return allDetails;
     }
 }
