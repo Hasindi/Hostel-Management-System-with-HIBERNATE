@@ -97,10 +97,8 @@ public class RegisterFormController {
 
                     if(remaindQuntity == 0){
                         txtAvilability.setText("UNAVILABLE");
-
                     }else{
                         txtAvilability.setText("AVILABLE");
-
                     }
                 } catch (SQLException | ClassNotFoundException | IOException e) {
                     e.printStackTrace();

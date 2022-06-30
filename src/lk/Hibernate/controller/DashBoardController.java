@@ -1,5 +1,6 @@
 package lk.Hibernate.controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -45,14 +46,57 @@ public class DashBoardController implements NavigationUtil {
     public Button btnRegister;
     public Button btnReport1;
     public AnchorPane loardFormContext;
+    public Label lblAllRooms;
+    public JFXComboBox<String> cmbRoomIds;
+
+    private final RoomBO roomBO = (RoomBO)BOFactory.getInstance().getBO(BOFactory.BOTypes.ROOM);
+    private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
 
     public void initialize() {
         try {
             loadAllDashLabels();
             DateTime();
+            setRoomIDs();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        cmbRoomIds.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+
+            if(newValue!=null){
+                Room room = null;
+
+                try {
+
+                    room = roomBO.getRoom(newValue);
+
+                } catch (SQLException | ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
+                int roomQTY = room.getQty();
+                lblAllRooms.setText(String.valueOf(roomQTY));
+
+                try {
+
+                    List<ReservationDTO> reservationDTOS = reservationBO.reservedRoomByTD(newValue);
+
+                    int registerCount = 0;
+                    for (ReservationDTO reservationDTO : reservationDTOS) {
+                        registerCount++;
+                    }
+                    int remaindQuntity = roomQTY-registerCount;
+                    lblRoomReseivedCount1.setText(String.valueOf(registerCount));
+                    lblRoomAvilableCount1.setText(String.valueOf(remaindQuntity));
+
+                } catch (SQLException | ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void setRoomIDs() throws SQLException, IOException, ClassNotFoundException {
+        cmbRoomIds.getItems().addAll(reservationBO.setRoomIDs());
     }
 
     private void loadAllDashLabels() throws SQLException, IOException, ClassNotFoundException {
