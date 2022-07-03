@@ -15,7 +15,7 @@ public class DAOFactory {
 
     //public final static integer values
     public enum DAOTypes {
-        STUDENT,ROOM,RESERVATION,REGISTERDETAILS
+        STUDENT,ROOM,RESERVATION,REGISTERDETAILS,USER
     }
 
     //method for hide the object creation logic and return what client wants
@@ -29,6 +29,8 @@ public class DAOFactory {
                 return new ReservationDAOImpl();
             case REGISTERDETAILS:
                 return new RegisterDetailsDAOImpl();
+            case USER:
+                return new UserDAOImpl();
             default:
                 return null;
         }

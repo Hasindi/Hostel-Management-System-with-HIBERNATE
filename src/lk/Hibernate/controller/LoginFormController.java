@@ -9,8 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.Hibernate.bo.BOFactory;
+import lk.Hibernate.bo.custom.UserBO;
+import lk.Hibernate.dto.UserDTO;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class LoginFormController {
     public JFXTextField txtUserName;
@@ -18,18 +23,22 @@ public class LoginFormController {
     public JFXPasswordField pwdPassword;
     public AnchorPane loginContext;
 
-    public void backOnAction(ActionEvent actionEvent) {
-    }
+    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
 
-    public void signInOnAction(ActionEvent actionEvent) throws IOException {
-        if(txtUserName.getText().equals("admin") & pwdPassword.getText().equals("1234")  ){
+    public void signInOnAction(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
+        List<UserDTO> allUser = userBO.loadAllUsers();
 
-            Stage stage=(Stage) loginContext.getScene().getWindow();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashBoard.fxml"))));
-            stage.centerOnScreen();
+        for (UserDTO userDTO : allUser) {
 
-        }else{
-            new Alert(Alert.AlertType.WARNING,"Invalid Login...!").show();
+            if(userDTO.getUsername().equals(txtUserName.getText()) && userDTO.getPassword().equals(pwdPassword.getText())){
+
+                Stage stage=(Stage) loginContext.getScene().getWindow();
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashBoard.fxml"))));
+                stage.centerOnScreen();
+
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Invalid Login...!").show();
+            }
         }
     }
 }

@@ -48,7 +48,7 @@
                         <Font name="System Bold" size="41.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="1099.0" layoutY="518.0" opacity="0.74" prefHeight="295.0" prefWidth="261.0" style="-fx-background-color: #B1B1B1;">
+                  <Label alignment="CENTER" layoutX="1099.0" layoutY="518.0" opacity="0.74" prefHeight="295.0" prefWidth="261.0" style="-fx-background-color: #B1B1B1; -fx-border-color: #F7D497; -fx-border-width: 5;">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -179,11 +179,20 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="252.0" layoutY="481.0" prefHeight="388.0" prefWidth="618.0" style="-fx-background-color: #B1B1B1;">
+                  <AnchorPane layoutX="252.0" layoutY="481.0" prefHeight="388.0" prefWidth="618.0" style="-fx-background-color: #E9ECE9; -fx-border-color: #F7D497; -fx-border-width: 5;">
                      <children>
-                        <JFXTextField fx:id="txtPassword" layoutX="270.0" layoutY="210.0" prefHeight="31.0" prefWidth="248.0" unFocusColor="BLACK" />
-                        <JFXTextField fx:id="txtUserName" layoutX="270.0" layoutY="126.0" prefHeight="31.0" prefWidth="248.0" unFocusColor="BLACK" />
-                        <Label layoutX="130.0" layoutY="126.0" text="User Name :">
+                        <JFXTextField fx:id="txtPassword" layoutX="281.0" layoutY="212.0" prefHeight="48.0" prefWidth="233.0" promptText="1234" unFocusColor="BLACK">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="txtUserName" layoutX="281.0" layoutY="128.0" prefHeight="48.0" prefWidth="233.0" promptText="user" unFocusColor="BLACK">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font></JFXTextField>
+                        <Label layoutX="135.0" layoutY="136.0" text="User Name :">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>
@@ -192,11 +201,8 @@
                                  </stops>
                               </LinearGradient>
                            </textFill>
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
                         </Label>
-                        <Label layoutX="137.0" layoutY="210.0" text="Password  : ">
+                        <Label layoutX="142.0" layoutY="220.0" text="Password  : ">
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>
@@ -211,10 +217,11 @@
                         </Label>
                         <Label layoutX="230.0" layoutY="37.0" text="USER DETAILS">
                            <textFill>
-                              <RadialGradient centerX="0.5170454545454546" centerY="0.5" radius="0.5">
+                              <RadialGradient centerX="0.5284090909090909" centerY="0.5" radius="0.5">
                                  <stops>
-                                    <Stop color="#f806a7" />
-                                    <Stop color="#009297" offset="1.0" />
+                                    <Stop color="#f212d4" />
+                                    <Stop color="#f212d4" offset="0.018115942028985508" />
+                                    <Stop color="#17b4bf" offset="1.0" />
                                  </stops>
                               </RadialGradient>
                            </textFill>
@@ -222,27 +229,16 @@
                               <Font name="System Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Separator layoutX="224.0" layoutY="76.0" prefWidth="200.0" style="-fx-background-color: #ae0877;" />
-                        <JFXButton layoutX="228.0" layoutY="292.0" prefHeight="48.0" prefWidth="192.0" style="-fx-background-color: #ad7e00;" text="UPDATE">
+                        <Separator layoutX="224.0" layoutY="76.0" prefWidth="200.0" style="-fx-background-color: #009297;" />
+                        <JFXButton fx:id="btnUpdate" layoutX="228.0" layoutY="300.0" onAction="#updateOnAction" opacity="0.8" prefHeight="48.0" prefWidth="192.0" style="-fx-background-color: #E88D11; -fx-background-radius: 65;" text="UPDATE" textFill="#ae0b0b">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>
-                           <textFill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop color="#ae2c2c" />
-                                    <Stop color="#9a2c2c" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </textFill>
                            <effect>
-                              <ColorAdjust brightness="-0.01" />
+                              <ColorAdjust brightness="-0.32" contrast="0.13" saturation="0.02" />
                            </effect>
                         </JFXButton>
                      </children>
-                     <effect>
-                        <ColorAdjust contrast="0.38" />
-                     </effect>
                   </AnchorPane>
                </children>
             </AnchorPane>
@@ -274,7 +270,7 @@
                   <Insets top="15.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#LogoutOnAction" prefHeight="36.0" prefWidth="181.0" style="-fx-background-color: tranceparents; -fx-background-radius: 60;" text="Log Out" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#LogoutOnAction" prefHeight="36.0" prefWidth="133.0" style="-fx-background-color: tranceparents; -fx-background-radius: 60;" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -282,14 +278,14 @@
                   <Insets left="5.0" right="5.0" />
                </padding>
                <HBox.margin>
-                  <Insets left="1055.0" top="17.0" />
+                  <Insets left="1095.0" top="17.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
       <VBox prefHeight="1050.0" prefWidth="274.0" style="-fx-background-color: #1D282D;">
          <children>
-            <Label text="Student" textFill="WHITE">
+            <Label text="D24" textFill="WHITE">
                <font>
                   <Font name="Vivaldi Italic" size="63.0" />
                </font>
@@ -297,12 +293,20 @@
                   <Insets left="25.0" top="25.0" />
                </VBox.margin>
             </Label>
-            <Label text="Hostel" textFill="WHITE">
+            <Label prefHeight="67.0" prefWidth="192.0" text="Student" textFill="WHITE">
+               <font>
+                  <Font name="Vivaldi Italic" size="63.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="45.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="47.0" prefWidth="134.0" text="Hostel" textFill="WHITE">
                <font>
                   <Font name="Vivaldi Italic" size="46.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="30.0" left="85.0" />
+                  <Insets bottom="30.0" left="120.0" />
                </VBox.margin>
             </Label>
             <Separator opacity="0.32" prefWidth="200.0">

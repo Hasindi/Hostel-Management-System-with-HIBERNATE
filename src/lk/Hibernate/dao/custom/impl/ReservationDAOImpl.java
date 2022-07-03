@@ -43,7 +43,7 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public List<Reservation> loadAll() throws SQLException, ClassNotFoundException, IOException {
+    public List<Reservation> loadAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 

@@ -23,7 +23,7 @@
       </ImageView>
       <AnchorPane layoutY="114.0" prefHeight="434.0" prefWidth="983.0">
          <children>
-            <JFXButton layoutX="166.0" layoutY="194.0" onAction="#backOnAction" prefHeight="44.0" prefWidth="118.0" style="-fx-background-color: #A97A35;" text="Sign In" textFill="WHITE">
+            <JFXButton layoutX="166.0" layoutY="194.0" prefHeight="44.0" prefWidth="118.0" style="-fx-background-color: #A97A35;" text="Sign In" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -47,6 +47,9 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
             </JFXTextField>
             <JFXButton fx:id="btnLogIn" layoutX="687.0" layoutY="262.0" onAction="#signInOnAction" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #A97A35;" text="Sign In" textFill="WHITE">
                <font>
@@ -68,6 +71,9 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
             </JFXPasswordField>
             <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="611.0" layoutY="126.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
                <image>

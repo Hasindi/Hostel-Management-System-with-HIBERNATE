@@ -4,11 +4,15 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.Hibernate.bo.BOFactory;
 import lk.Hibernate.bo.custom.RegisterDetailsBO;
+import lk.Hibernate.dto.ReservationDTO;
+import lk.Hibernate.dto.RoomDTO;
 import lk.Hibernate.entity.Custom;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.view.TM.RegisterDetailsTM;
@@ -30,7 +34,6 @@ public class AllDetailsController {
     public JFXTextField txtKeyMoney;
     public JFXTextField txtQuntity;
 
-    //private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
     private final RegisterDetailsBO registerDetailsBO = (RegisterDetailsBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.REGISTERDETAILS);
 
     public void initialize(){

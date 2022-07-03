@@ -28,7 +28,7 @@
             <TableColumn fx:id="colGender" prefWidth="177.0" text="Gender" />
          </columns>
       </TableView>
-      <TextField fx:id="txtSearchId" layoutX="1264.0" layoutY="448.0" opacity="0.78" prefHeight="39.0" prefWidth="322.0" promptText="Search Customer" style="-fx-background-radius: 65;">
+      <TextField fx:id="txtSearchId" layoutX="1264.0" layoutY="448.0" opacity="0.78" prefHeight="39.0" prefWidth="322.0" promptText="Search Student ID" style="-fx-background-radius: 65;">
          <effect>
             <ColorAdjust brightness="-0.22" contrast="-0.33" hue="0.38" saturation="-0.4" />
          </effect>

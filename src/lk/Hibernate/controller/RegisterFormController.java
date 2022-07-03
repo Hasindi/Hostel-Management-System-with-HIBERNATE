@@ -97,9 +97,9 @@ public class RegisterFormController {
                     int remaindQuntity = roomQTY-registerCount;
 
                     if(remaindQuntity == 0){
-                        txtAvilability.setText("UNAVILABLE");
+                        txtAvilability.setText("UNAVEILABLE");
                     }else{
-                        txtAvilability.setText("AVILABLE");
+                        txtAvilability.setText("AVEILABLE");
                     }
                 } catch (SQLException | ClassNotFoundException | IOException e) {
                     e.printStackTrace();
@@ -129,7 +129,6 @@ public class RegisterFormController {
         txtRoomType.setText(room.getType());
         txtKeyMoney.setText(String.valueOf(room.getKeyMoney()));
         txtQuntity.setText(String.valueOf(room.getQty()));
-
     }
 
     private void setStudentData(String id) throws SQLException, ClassNotFoundException, IOException {

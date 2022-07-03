@@ -1,5 +1,6 @@
 package lk.Hibernate.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.Animation;
@@ -20,8 +21,10 @@ import lk.Hibernate.bo.BOFactory;
 import lk.Hibernate.bo.custom.ReservationBO;
 import lk.Hibernate.bo.custom.RoomBO;
 import lk.Hibernate.bo.custom.StudentBO;
+import lk.Hibernate.bo.custom.UserBO;
 import lk.Hibernate.dto.ReservationDTO;
 import lk.Hibernate.dto.StudentDTO;
+import lk.Hibernate.dto.UserDTO;
 import lk.Hibernate.entity.Room;
 import lk.Hibernate.util.NavigationUtil;
 
@@ -51,17 +54,23 @@ public class DashBoardController implements NavigationUtil {
     public JFXComboBox<String> cmbRoomIds;
     public JFXTextField txtPassword;
     public JFXTextField txtUserName;
+    public JFXButton btnUpdate;
 
     private final RoomBO roomBO = (RoomBO)BOFactory.getInstance().getBO(BOFactory.BOTypes.ROOM);
     private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.RESERVATION);
     private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
+    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
 
 
     public void initialize() {
+        btnUpdate.setDisable(true);
+
         try {
             loadAllDashLabels();
             DateTime();
             setRoomIDs();
+            setUserNamePassword();
+            btnUpdate.setDisable(false);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -98,6 +107,14 @@ public class DashBoardController implements NavigationUtil {
                 }
             }
         });
+    }
+
+    private void setUserNamePassword() throws SQLException, IOException, ClassNotFoundException {
+        List<UserDTO> userDTOS = userBO.loadAllUsers();
+        for (UserDTO userDTO : userDTOS) {
+            txtUserName.setText(userDTO.getUsername());
+            txtPassword.setText(userDTO.getPassword());
+        }
     }
 
     private void setRoomIDs() throws SQLException, IOException, ClassNotFoundException {
@@ -142,6 +159,13 @@ public class DashBoardController implements NavigationUtil {
         }
     }
 
+    public void updateOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        userBO.update(new UserDTO(
+                "UI-001",txtUserName.getText(),txtPassword.getText()
+
+        ));
+    }
+
     public void DashboardOnAction(ActionEvent actionEvent) throws IOException {
         CloseWindowUi(AdminDashBoardContext);
         Parent parent = FXMLLoader.load(getClass().getResource("../view/DashBoard.fxml"));
@@ -180,4 +204,6 @@ public class DashBoardController implements NavigationUtil {
         Stage stage= (Stage)a.getScene().getWindow();
         stage.close();
     }
+
+
 }

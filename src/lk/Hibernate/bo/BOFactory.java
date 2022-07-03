@@ -14,7 +14,7 @@ public class BOFactory {
 
     //public final static integer values
     public enum BOTypes {
-        STUDENT,ROOM,RESERVATION,REGISTERDETAILS
+        STUDENT,ROOM,RESERVATION,REGISTERDETAILS,USER
     }
 
     //method for hide the object creation logic and return what client wants
@@ -28,6 +28,8 @@ public class BOFactory {
                 return new ReservationBOImpl();
             case REGISTERDETAILS:
                 return new RegisterDetailsBOImpl();
+            case USER:
+                return new UserBOImpl();
             default:
                 return null;
         }
